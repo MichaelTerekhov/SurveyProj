@@ -12,19 +12,21 @@ namespace ManagerLib
         public string QuestionType { get; set; }
         [JsonPropertyName("text")]
         public string Text { get; set; }
-        [JsonPropertyName("answerOptions")]
-        public List<string> answerOptions { get; set; }
-
+        [JsonPropertyName("AnswerOptions")]
+        public List<string> AnswerOptions { get; set; }
+        [JsonPropertyName("answers")]
+        public List<string> Answers { get; set; }
         public Question()
         {
-            answerOptions = new List<string>();
+            AnswerOptions = new List<string>();
+            Answers = new List<string>();
         }
         public override string ToString()
         {
             var s = new StringBuilder();
             s.AppendLine(Text);
-            if (answerOptions != null)
-                foreach (var m in answerOptions)
+            if (AnswerOptions != null)
+                foreach (var m in AnswerOptions)
                     s.AppendLine(m);
             return s.ToString();
         }

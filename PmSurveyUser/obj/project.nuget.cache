@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "nFlOZwFpaxMcPZDv4SOjMnrlbfByd2y850ny/+uRmAMohGhDdCLhejM4WJN9leQ6Taz7tL+p+0RXoC9byrOF7w==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Михаил\\source\\repos\\PmSurvey\\PmSurveyUser\\PmSurveyUser.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Михаил\\.nuget\\packages\\system.text.json\\5.0.1\\system.text.json.5.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}

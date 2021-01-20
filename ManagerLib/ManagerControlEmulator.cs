@@ -257,8 +257,8 @@ namespace ManagerLib
                         DeleteSurvey();
                         break;
                     case 4:
-                        // Stats();
-                        continue;
+                        Stats();
+                        break;
                     case 5:
                         Console.ForegroundColor = ConsoleColor.DarkGreen;
                         Console.WriteLine("See you next time!");
@@ -273,10 +273,81 @@ namespace ManagerLib
             }
         }
 
+        private void Stats()
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("\nPlease enter id of survey, which you would like to see statistic\n" +
+                "If you still change your mind about taking the survey, enter a negative id, for Example:\tID-> -1");
+            int parsed;
+            while (true)
+            {
+                Console.Write("ID-> ");
+                bool input = int.TryParse(Console.ReadLine(), out parsed);
+                if (!input)
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
+                    Console.WriteLine("Wrong input param");
+                    Console.ResetColor();
+                    continue;
+                }
+                if (parsed < 0)
+                    return;
+                break;
+            }
+            bool surveyFound = false;
+            foreach (var m in surveys)
+            {
+                if (m.Id == parsed)
+                {
+                    surveyFound = true;
+
+                    for (var l = 0; l < m.QuestionContainer.Count; l++)
+                    {
+                        Dictionary<string, int> multiNumber = new Dictionary<string, int>();
+                        for (var i = 0; i < m.QuestionContainer[l].Answers.Count;i++)
+                        {
+                            string tempAns = m.QuestionContainer[l].Answers[i];
+                            if (!multiNumber.ContainsKey(tempAns))
+                                multiNumber.Add(tempAns, 1);
+                            else
+                            {
+                                bool s = multiNumber.TryGetValue(tempAns, out int val);
+                                multiNumber[tempAns] = val + 1;
+                            }
+                        }
+                        if (m.QuestionContainer[l].QuestionType == "OPEN")
+                        {
+                            Console.WriteLine($"Question: {m.QuestionContainer[l].Text}");
+                            foreach (var f in multiNumber)
+                            {
+                                Console.WriteLine($"Answer: {f.Key} Reapeted: {f.Value}");
+                            }
+                        }
+                        else if (m.QuestionContainer[l].QuestionType == "CLOSED")
+                        {
+                            Console.WriteLine($"Question: {m.QuestionContainer[l].Text}");
+                            for (var j = 0; j < m.QuestionContainer[l].AnswerOptions.Count; j++)
+                            {
+                                Console.WriteLine($"{j + 1}.\t{m.QuestionContainer[l].AnswerOptions[j]}");
+                            }
+                            foreach (var f in multiNumber)
+                            {
+                                Console.WriteLine($"Answer: {f.Key} Reapeted: {f.Value}");
+                            }
+                        }
+                    }                 
+                    break;
+                }
+            }
+            Console.ForegroundColor = ConsoleColor.Red;
+            if (!surveyFound)
+                Console.WriteLine($"\nSorry, but there is no such survey with [{parsed} id] in the database :(\n");
+            Console.ResetColor();
+        }
 
         private void DeleteSurvey()
         {
-            Console.WriteLine("\nPlease enter id of note, which you would like to DELETE.");
+            Console.WriteLine("\nPlease enter id of survey, which you would like to DELETE.");
             int parsed;
             while (true)
             {
@@ -333,7 +404,7 @@ namespace ManagerLib
             }
             Console.ForegroundColor = ConsoleColor.Red;
             if (!surveyFound)
-                Console.WriteLine($"\nSorry, but there is no such note with [{parsed} id] in the database :(\n");
+                Console.WriteLine($"\nSorry, but there is no such survey with [{parsed} id] in the database :(\n");
             Console.ResetColor();
         }
 
@@ -438,6 +509,47 @@ namespace ManagerLib
             {
                 Console.WriteLine($"{i + 1 }. {res[i]}");
             }
+            Console.WriteLine("Would you like to add questions? See instructions");
+            while (true)
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("Please enter type of question! (Open or Closed)\tExample: Type-> open\n\n" +
+                    "If you wouldnt like to add more questions write 'exit'\tExample: Type-> exit");
+                Console.ResetColor();
+                Console.Write("Type -> ");
+                var type = Console.ReadLine().Replace(" ", "").ToUpper();
+                if (String.IsNullOrEmpty(type))
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
+                    Console.WriteLine("Unsupported type! Try again");
+                    Console.ResetColor();
+                    continue;
+                }
+                if (type == "EXIT")
+                {
+                    if (survey.QuestionContainer.Count == 0)
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
+                        Console.WriteLine("Sorry, but you cant create survey with 0 questions");
+                        Console.ResetColor();
+                        survey = null;
+                    }
+                    break;
+                }
+                else if (type == "OPEN")
+                {
+                    survey.QuestionContainer.Add(new Question { QuestionType = type, Text = InputQuestionText(), AnswerOptions = null });
+                    continue;
+                }
+                else if (type == "CLOSED")
+                {
+                    survey.QuestionContainer.Add(new Question { QuestionType = type, Text = InputQuestionText(), AnswerOptions = InputAnswerOptions() });
+                    continue;
+                }
+            }
+
+
+
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine($"Select number of question Which one you want to work with\n" +
                 $"To stop editing, just write 'stop'\tExample: Select -> stop");
@@ -482,19 +594,19 @@ namespace ManagerLib
                             if (type == "OPEN" && res[questionNumber - 1].QuestionType == "CLOSED")
                             {
                                 res[questionNumber - 1].QuestionType = type;
-                                res[questionNumber - 1].answerOptions = null;
+                                res[questionNumber - 1].AnswerOptions = null;
                                 break;
                             }
                             else if (type == "CLOSED" && res[questionNumber - 1].QuestionType == "OPEN")
                             {
                                 res[questionNumber - 1].QuestionType = type;
-                                res[questionNumber - 1].answerOptions = InputAnswerOptions();
+                                res[questionNumber - 1].AnswerOptions = InputAnswerOptions();
                                 break;
                             }
                             else if (res[questionNumber - 1].QuestionType == "CLOSED")
                             {
                                 Console.ForegroundColor = ConsoleColor.Cyan;
-                                if (res[questionNumber - 1].answerOptions.Count == 0)
+                                if (res[questionNumber - 1].AnswerOptions.Count == 0)
                                 {
                                     Console.WriteLine("List of answer options is empty! Try to add some.\n" +
                                         "If its enough options, just write 'enough'\tExample: Option-> enough");
@@ -508,7 +620,7 @@ namespace ManagerLib
                                             break;
                                         else
                                         {
-                                            res[questionNumber - 1].answerOptions.Add(newOption);
+                                            res[questionNumber - 1].AnswerOptions.Add(newOption);
                                             Console.ForegroundColor = ConsoleColor.Green;
                                             Console.WriteLine("Complete");
                                             Console.ResetColor();
@@ -528,7 +640,7 @@ namespace ManagerLib
                                         break;
                                     else
                                     {
-                                        res[questionNumber - 1].answerOptions.Add(newOption);
+                                        res[questionNumber - 1].AnswerOptions.Add(newOption);
                                         Console.ForegroundColor = ConsoleColor.Green;
                                         Console.WriteLine("Complete");
                                         Console.ResetColor();
@@ -537,8 +649,8 @@ namespace ManagerLib
 
                                 while (true)
                                 {
-                                    for (var i = 0; i < res[questionNumber - 1].answerOptions.Count; i++)
-                                        Console.WriteLine($"{i + 1}. " + res[questionNumber - 1].answerOptions[i]);
+                                    for (var i = 0; i < res[questionNumber - 1].AnswerOptions.Count; i++)
+                                        Console.WriteLine($"{i + 1}. " + res[questionNumber - 1].AnswerOptions[i]);
                                     Console.ForegroundColor = ConsoleColor.Yellow;
                                     Console.WriteLine("Please edit answer options!\tExample: Answer option-> 1.\n\n" +
                                         "If you wouldnt like to edit, just leave empty string\tExample: Answer option-> ");
@@ -550,7 +662,7 @@ namespace ManagerLib
                                     {
                                         return res;
                                     }
-                                    if (optionNumber <= 0 || optionNumber > res[questionNumber - 1].answerOptions.Count)
+                                    if (optionNumber <= 0 || optionNumber > res[questionNumber - 1].AnswerOptions.Count)
                                     {
                                         Console.ForegroundColor = ConsoleColor.DarkRed;
                                         Console.WriteLine("Unsupported command! Try again");
@@ -560,7 +672,7 @@ namespace ManagerLib
                                     else
                                     {
                                         Console.ForegroundColor = ConsoleColor.Blue;
-                                        Console.WriteLine(res[questionNumber - 1].answerOptions[optionNumber - 1]);
+                                        Console.WriteLine(res[questionNumber - 1].AnswerOptions[optionNumber - 1]);
                                         Console.WriteLine("Which action would you like to perform?");
                                         while (true)
                                         {
@@ -587,7 +699,7 @@ namespace ManagerLib
                                                             continue;
                                                         else
                                                         {
-                                                            res[questionNumber - 1].answerOptions[optionNumber - 1] = newOption;
+                                                            res[questionNumber - 1].AnswerOptions[optionNumber - 1] = newOption;
                                                             break;
                                                         }
                                                     }
@@ -600,13 +712,13 @@ namespace ManagerLib
                                                             continue;
                                                         else
                                                         {
-                                                            res[questionNumber - 1].answerOptions[optionNumber - 1] += newOption;
+                                                            res[questionNumber - 1].AnswerOptions[optionNumber - 1] += newOption;
                                                             break;
                                                         }
                                                     }
                                                     break;
                                                 case 3:
-                                                    res[questionNumber - 1].answerOptions.Remove(res[questionNumber - 1].answerOptions[optionNumber - 1]);
+                                                    res[questionNumber - 1].AnswerOptions.Remove(res[questionNumber - 1].AnswerOptions[optionNumber - 1]);
                                                     break;
                                                 case 4:
                                                     break;
@@ -734,12 +846,12 @@ namespace ManagerLib
                 }
                 else if (type == "OPEN")
                 {
-                    createdSurvey.QuestionContainer.Add(new Question { QuestionType = type, Text = InputQuestionText(), answerOptions = null });
+                    createdSurvey.QuestionContainer.Add(new Question { QuestionType = type, Text = InputQuestionText(), AnswerOptions = null });
                     continue;
                 }
                 else if (type == "CLOSED")
                 {
-                    createdSurvey.QuestionContainer.Add(new Question { QuestionType = type, Text = InputQuestionText(), answerOptions = InputAnswerOptions() });
+                    createdSurvey.QuestionContainer.Add(new Question { QuestionType = type, Text = InputQuestionText(), AnswerOptions = InputAnswerOptions() });
                     continue;
                 }
             }

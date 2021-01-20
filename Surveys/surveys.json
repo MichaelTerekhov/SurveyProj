@@ -1,26 +1,43 @@
 [
   {
-    "authorId": 93162541,
-    "subject": "Sports",
+    "authorId": 31468971,
+    "subject": "Test",
     "kind": "Multivariant",
-    "id": 1,
+    "id": 2,
     "questions": [
       {
         "questionType": "OPEN",
-        "text": "Hello?",
-        "answerOptions": null
+        "text": "What is your name?",
+        "AnswerOptions": null,
+        "answers": [
+          "Misha",
+          "Semen"
+        ]
+      },
+      {
+        "questionType": "OPEN",
+        "text": "How old are you?",
+        "AnswerOptions": null,
+        "answers": [
+          "18",
+          "18"
+        ]
       },
       {
         "questionType": "CLOSED",
-        "text": "How are you?",
-        "answerOptions": [
-          "Hello",
-          "Shalom",
-          "Hallo",
-          "Guten Tag"
+        "text": "Where are you from?",
+        "AnswerOptions": [
+          "Ukraine",
+          "Bolgaria",
+          "Russia",
+          "USA"
+        ],
+        "answers": [
+          "Ukraine",
+          "Ukraine"
         ]
       }
     ],
-    "date": "2021-01-20T00:37:14.0847012Z"
+    "date": "2021-01-20T06:38:14.257834Z"
   }
 ]

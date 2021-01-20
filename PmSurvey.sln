@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PmSurveyManager", "PmSurvey
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManagerLib", "ManagerLib\ManagerLib.csproj", "{6E283975-D29B-4145-AEC4-87780FB46AB3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PmSurveyUser", "PmSurveyUser\PmSurveyUser.csproj", "{0BF88F35-AA69-4AD4-875F-BF0929ABA499}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{6E283975-D29B-4145-AEC4-87780FB46AB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E283975-D29B-4145-AEC4-87780FB46AB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E283975-D29B-4145-AEC4-87780FB46AB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BF88F35-AA69-4AD4-875F-BF0929ABA499}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BF88F35-AA69-4AD4-875F-BF0929ABA499}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BF88F35-AA69-4AD4-875F-BF0929ABA499}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BF88F35-AA69-4AD4-875F-BF0929ABA499}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
