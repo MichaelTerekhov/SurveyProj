@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "xwk1gehnX7RXOPNjszGZlCO8be25Q/b0Pexc1zrflChwU7XPeNiBAdlzbLI2zHhdcLuCwyK0IiPYpKVzZObnCw==",
+  "dgSpecHash": "Tunr6aL8zrX7Ud/KnfBEH7WyJ4fKa79Ui9WoTj/Zoplg1/EKmUPCfELXesJNtYUUBmg4UQhMgYOf12v1wSQqlQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Михаил\\source\\repos\\PmSurvey\\PmSurveyManager\\PmSurveyManager.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Михаил\\.nuget\\packages\\system.text.json\\5.0.1\\system.text.json.5.0.1.nupkg.sha512"
+  ],
   "logs": []
 }

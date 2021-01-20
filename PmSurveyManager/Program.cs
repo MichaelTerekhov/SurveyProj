@@ -1,4 +1,5 @@
 ﻿using System;
+using ManagerLib;
 
 namespace PmSurveyManager
 {
@@ -6,7 +7,8 @@ namespace PmSurveyManager
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var emulator = new ManagerControlEmulator();
+            emulator.StartUpMenu();
         }
     }
 }

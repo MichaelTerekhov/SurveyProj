@@ -1,0 +1,9 @@
+C:\Users\Михаил\source\repos\PmSurvey\ManagerLib\bin\Debug\netstandard2.0\ManagerLib.deps.json
+C:\Users\Михаил\source\repos\PmSurvey\ManagerLib\bin\Debug\netstandard2.0\ManagerLib.dll
+C:\Users\Михаил\source\repos\PmSurvey\ManagerLib\bin\Debug\netstandard2.0\ManagerLib.pdb
+C:\Users\Михаил\source\repos\PmSurvey\ManagerLib\obj\Debug\netstandard2.0\ManagerLib.csprojAssemblyReference.cache
+C:\Users\Михаил\source\repos\PmSurvey\ManagerLib\obj\Debug\netstandard2.0\ManagerLib.AssemblyInfoInputs.cache
+C:\Users\Михаил\source\repos\PmSurvey\ManagerLib\obj\Debug\netstandard2.0\ManagerLib.AssemblyInfo.cs
+C:\Users\Михаил\source\repos\PmSurvey\ManagerLib\obj\Debug\netstandard2.0\ManagerLib.csproj.CoreCompileInputs.cache
+C:\Users\Михаил\source\repos\PmSurvey\ManagerLib\obj\Debug\netstandard2.0\ManagerLib.dll
+C:\Users\Михаил\source\repos\PmSurvey\ManagerLib\obj\Debug\netstandard2.0\ManagerLib.pdb

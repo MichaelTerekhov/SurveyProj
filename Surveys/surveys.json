@@ -1,0 +1,26 @@
+[
+  {
+    "authorId": 93162541,
+    "subject": "Sports",
+    "kind": "Multivariant",
+    "id": 1,
+    "questions": [
+      {
+        "questionType": "OPEN",
+        "text": "Hello?",
+        "answerOptions": null
+      },
+      {
+        "questionType": "CLOSED",
+        "text": "How are you?",
+        "answerOptions": [
+          "Hello",
+          "Shalom",
+          "Hallo",
+          "Guten Tag"
+        ]
+      }
+    ],
+    "date": "2021-01-20T00:37:14.0847012Z"
+  }
+]
