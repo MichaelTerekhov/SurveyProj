@@ -13,7 +13,14 @@ namespace ManagerLib
         public void StartUpMenu()
         {
             Deserialization();
-           // if()
+            if (surveys.Count == 0 || surveys == null)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine("Please contact the survey manager as the repository is empty as it is impossible to get all surveys");
+                Console.ResetColor();
+                Console.ReadKey();
+                Environment.Exit(-1);
+            }
             MainMenu();
             while (true)
             {
@@ -208,7 +215,7 @@ namespace ManagerLib
                 string jsonSurveys = File.ReadAllText(pathToSurveys);
                 surveys = JsonSerializer.Deserialize<List<Survey>>(jsonSurveys);
             }
-            catch (JsonException)
+            catch (Exception)
             {
                 Console.WriteLine("[Couldnt get data!]");
             }

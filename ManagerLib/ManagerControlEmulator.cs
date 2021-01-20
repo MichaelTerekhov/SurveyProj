@@ -15,6 +15,7 @@ namespace ManagerLib
         public void StartUpMenu()
         {
             Deserialization();
+            
             MainMenu();
             while (true)
             {
@@ -413,9 +414,9 @@ namespace ManagerLib
             Deserialization();
             Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine("Welcome to the survey builder.\n" +
-                "You can create a poll from 0 and fill it with questions.\n\n");
+                "You can edit survey and fill it with questions.\n\n");
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("First, come up with a survey topic");
+            Console.WriteLine("Please, choose id of survey, that you would like to edit");
             Console.ResetColor();
             int id = 0;
             while (true)
@@ -512,7 +513,7 @@ namespace ManagerLib
             Console.WriteLine("Would you like to add questions? See instructions");
             while (true)
             {
-                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.ForegroundColor = ConsoleColor.Magenta;
                 Console.WriteLine("Please enter type of question! (Open or Closed)\tExample: Type-> open\n\n" +
                     "If you wouldnt like to add more questions write 'exit'\tExample: Type-> exit");
                 Console.ResetColor();
@@ -547,9 +548,8 @@ namespace ManagerLib
                     continue;
                 }
             }
-
-
-
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine("[Work with questions]");
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine($"Select number of question Which one you want to work with\n" +
                 $"To stop editing, just write 'stop'\tExample: Select -> stop");
@@ -628,7 +628,7 @@ namespace ManagerLib
                                     }
                                     return res;
                                 }
-                                Console.WriteLine("Try to input some new anwer options!\tExample: Answer option-> 1.\n" +
+                                Console.WriteLine("Try to input some new answer options!\tExample: Answer option-> 1.\n" +
                                         "If you wouldnt like to add, just leave empty string or write 'enough'\tExample: Answer option-> ");
                                 while (true)
                                 {
@@ -671,6 +671,7 @@ namespace ManagerLib
                                     }
                                     else
                                     {
+                                        Console.WriteLine();
                                         Console.ForegroundColor = ConsoleColor.Blue;
                                         Console.WriteLine(res[questionNumber - 1].AnswerOptions[optionNumber - 1]);
                                         Console.WriteLine("Which action would you like to perform?");
@@ -718,6 +719,10 @@ namespace ManagerLib
                                                     }
                                                     break;
                                                 case 3:
+                                                    if (res[questionNumber - 1].AnswerOptions.Count == 0)
+                                                    {
+                                                        res[questionNumber - 1] = null;
+                                                    }
                                                     res[questionNumber - 1].AnswerOptions.Remove(res[questionNumber - 1].AnswerOptions[optionNumber - 1]);
                                                     break;
                                                 case 4:
@@ -901,9 +906,16 @@ namespace ManagerLib
 
         private static void Deserialization()
         {
-            string pathToSurveys = $@"{Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName}\Surveys\surveys.json";
-            string jsonSurveys = File.ReadAllText(pathToSurveys);
-            surveys = JsonSerializer.Deserialize<List<Survey>>(jsonSurveys);
+            try
+            {
+                string pathToSurveys = $@"{Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName}\Surveys\surveys.json";
+                string jsonSurveys = File.ReadAllText(pathToSurveys);
+                surveys = JsonSerializer.Deserialize<List<Survey>>(jsonSurveys);
+            }
+            catch(Exception)
+            {
+                Console.WriteLine("[cannot load data!]");
+            }
         }
 
         private string InputQuestionText()
