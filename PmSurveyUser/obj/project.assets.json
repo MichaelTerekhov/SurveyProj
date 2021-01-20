@@ -67,11 +67,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Михаил\\source\\repos\\PmSurvey\\PmSurveyManager\\PmSurveyManager.csproj",
-      "projectName": "PmSurveyManager",
-      "projectPath": "C:\\Users\\Михаил\\source\\repos\\PmSurvey\\PmSurveyManager\\PmSurveyManager.csproj",
+      "projectUniqueName": "C:\\Users\\Михаил\\source\\repos\\PmSurvey\\PmSurveyUser\\PmSurveyUser.csproj",
+      "projectName": "PmSurveyUser",
+      "projectPath": "C:\\Users\\Михаил\\source\\repos\\PmSurvey\\PmSurveyUser\\PmSurveyUser.csproj",
       "packagesPath": "C:\\Users\\Михаил\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Михаил\\source\\repos\\PmSurvey\\PmSurveyManager\\obj\\",
+      "outputPath": "C:\\Users\\Михаил\\source\\repos\\PmSurvey\\PmSurveyUser\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

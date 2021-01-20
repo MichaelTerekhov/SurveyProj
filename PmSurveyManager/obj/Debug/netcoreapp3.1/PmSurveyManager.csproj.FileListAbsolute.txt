@@ -1,0 +1,17 @@
+C:\Users\Михаил\source\repos\PmSurvey\PmSurveyManager\bin\Debug\netcoreapp3.1\PmSurveyManager.exe
+C:\Users\Михаил\source\repos\PmSurvey\PmSurveyManager\bin\Debug\netcoreapp3.1\PmSurveyManager.deps.json
+C:\Users\Михаил\source\repos\PmSurvey\PmSurveyManager\bin\Debug\netcoreapp3.1\PmSurveyManager.runtimeconfig.json
+C:\Users\Михаил\source\repos\PmSurvey\PmSurveyManager\bin\Debug\netcoreapp3.1\PmSurveyManager.runtimeconfig.dev.json
+C:\Users\Михаил\source\repos\PmSurvey\PmSurveyManager\bin\Debug\netcoreapp3.1\PmSurveyManager.dll
+C:\Users\Михаил\source\repos\PmSurvey\PmSurveyManager\bin\Debug\netcoreapp3.1\PmSurveyManager.pdb
+C:\Users\Михаил\source\repos\PmSurvey\PmSurveyManager\bin\Debug\netcoreapp3.1\System.Text.Json.dll
+C:\Users\Михаил\source\repos\PmSurvey\PmSurveyManager\bin\Debug\netcoreapp3.1\ManagerLib.dll
+C:\Users\Михаил\source\repos\PmSurvey\PmSurveyManager\bin\Debug\netcoreapp3.1\ManagerLib.pdb
+C:\Users\Михаил\source\repos\PmSurvey\PmSurveyManager\obj\Debug\netcoreapp3.1\PmSurveyManager.csprojAssemblyReference.cache
+C:\Users\Михаил\source\repos\PmSurvey\PmSurveyManager\obj\Debug\netcoreapp3.1\PmSurveyManager.AssemblyInfoInputs.cache
+C:\Users\Михаил\source\repos\PmSurvey\PmSurveyManager\obj\Debug\netcoreapp3.1\PmSurveyManager.AssemblyInfo.cs
+C:\Users\Михаил\source\repos\PmSurvey\PmSurveyManager\obj\Debug\netcoreapp3.1\PmSurveyManager.csproj.CoreCompileInputs.cache
+C:\Users\Михаил\source\repos\PmSurvey\PmSurveyManager\obj\Debug\netcoreapp3.1\PmSurveyManager.csproj.CopyComplete
+C:\Users\Михаил\source\repos\PmSurvey\PmSurveyManager\obj\Debug\netcoreapp3.1\PmSurveyManager.dll
+C:\Users\Михаил\source\repos\PmSurvey\PmSurveyManager\obj\Debug\netcoreapp3.1\PmSurveyManager.pdb
+C:\Users\Михаил\source\repos\PmSurvey\PmSurveyManager\obj\Debug\netcoreapp3.1\PmSurveyManager.genruntimeconfig.cache

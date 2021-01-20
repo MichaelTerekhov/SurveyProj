@@ -1,0 +1,43 @@
+[
+  {
+    "authorId": 31468971,
+    "subject": "Test",
+    "kind": "Multivariant",
+    "id": 2,
+    "questions": [
+      {
+        "questionType": "OPEN",
+        "text": "What is your name?",
+        "AnswerOptions": null,
+        "answers": [
+          "Misha",
+          "Semen"
+        ]
+      },
+      {
+        "questionType": "OPEN",
+        "text": "How old are you?",
+        "AnswerOptions": null,
+        "answers": [
+          "18",
+          "18"
+        ]
+      },
+      {
+        "questionType": "CLOSED",
+        "text": "Where are you from?",
+        "AnswerOptions": [
+          "Ukraine",
+          "Bolgaria",
+          "Russia",
+          "USA"
+        ],
+        "answers": [
+          "Ukraine",
+          "Ukraine"
+        ]
+      }
+    ],
+    "date": "2021-01-20T06:38:14.257834Z"
+  }
+]
