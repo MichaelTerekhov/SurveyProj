@@ -21,7 +21,7 @@ namespace ManagerLib
             {
                 MenuList();
                 Console.Write("Select -> ");
-                bool input = int.TryParse(Console.ReadLine(), out int MainMenuChoose);
+                bool input = int.TryParse(Console.ReadLine(), out int mainMenuChoose);
                 if (!input)
                 {
                     Console.ForegroundColor = ConsoleColor.DarkRed;
@@ -29,7 +29,7 @@ namespace ManagerLib
                     Console.ResetColor();
                     continue;
                 }
-                switch (MainMenuChoose)
+                switch (mainMenuChoose)
                 {
                     case 1:
                         RegistrationForm();
@@ -114,7 +114,7 @@ namespace ManagerLib
                             while (true)
                             {
                                 Console.Write("Select -> ");
-                                bool input = int.TryParse(Console.ReadLine(), out int MenuChoose);
+                                bool input = int.TryParse(Console.ReadLine(), out int menuChoose);
                                 if (!input)
                                 {
                                     Console.ForegroundColor = ConsoleColor.DarkRed;
@@ -122,7 +122,7 @@ namespace ManagerLib
                                     Console.ResetColor();
                                     continue;
                                 }
-                                switch (MenuChoose)
+                                switch (menuChoose)
                                 {
                                     case 1:
                                         RegistrationForm();
